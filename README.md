@@ -1,7 +1,7 @@
 # Docthereum 🩺
 A dapp to maintain anonymous medical reports and aids in seamless healthcare across the globe 🌎.
 <p align="left">
-  <img width="70%" src="https://i.ibb.co/y5DQz8r/Screenshot-84.png">
+  <img width="70%" src="https://i.ibb.co/TH3QkSK/doc.png">
 </p>
 
 ## The problem it solves
@@ -17,6 +17,8 @@ Another major concern is maintaining confidentiality of the patient records as t
   hospital negligent for breaking confidentiality of his medical records
 => **We maintain the records linked to patients Ethereum's public address, hence providing anonymity to the patient.
   And the identity of patient remains confidential.**
+
+  **Also there is an option for Decentralized Identifier or DID for the wallet address of the user**
 
 ## 3. Research 👩‍🔬
 Research includes increased efforts to use stored medical records as a source of data for health services, epidemiologic, and clinical studies. Given that it can be cumbersome, if not impossible, to find and seek consent from patients whose current or past records might be used.
@@ -38,6 +40,11 @@ While developing the dapp , we noticed that Chainlink's rinkeby network was in m
 Rinkeby [0xa6a11dF4FAc5c4b148bC91f03FD0919237d16801](https://github.com/devstardude/Docthereum/blob/master/packages/contracts/docthereum.sol)  
 And Kovan [0x6DdD958591974891eD4819cDF9a269DaEc3C55A7](https://github.com/devstardude/Docthereum/blob/master/packages/contracts/docthereum-kovan.sol).  
 So we were able to test the verification functionality on Kovan , all while deploying the subgrapgh on Rinkeby to index the Rinkeby version of the smart contract.**
+## 2. Different testnets 
+After studying about **Rubix DID** and contacting the devs of Rubix, we got to know there are no plugings available for a JavaScipt application and only Java SDK is available.
+
+### Solution :-
+We had to find a different technology that could run on Rinkby and can be integrated into React application, so we found **Veramo** and used it to get did done in our application.
 
 **Note :-** currently the dapp calls the instance deployed on Rinkeby network.
 
