@@ -23,6 +23,8 @@ import { API_KEY, SUBGRAPH_NAME } from "./constants.js";
 import MyReports from "./components/main/MyReports";
 import SearchReports from "./components/main/SearchReports";
 import Research from "./components/main/Research";
+import { agent } from "./veramo/setup";
+import Did from "./components/main/Did";
 
 function WalletButton(props) {
   const [rendered, setRendered] = useState("");
@@ -62,11 +64,26 @@ function WalletButton(props) {
 
 function App() {
   const [address, setAddress] = useState(null);
+  const [didDoc, setDidDoc] = useState();
   const [subgraphData, setSubgraphData] = useState(null);
   const contract = new Contract(addresses.DocAddress, abis.docthereum);
   const { account } = useEthers();
   const APIURL =
     "https://api.studio.thegraph.com/query/24067/docthereum/v0.0.2";
+
+  // Veramo Did resolver
+  const resolve = async (addressId) => {
+    const doc = await agent.resolveDid({
+      didUrl: `did:ethr:rinkeby:${addressId}`,
+    });
+
+    setDidDoc(doc);
+  };
+  useEffect(() => {
+    if (account) {
+      resolve(account);
+    }
+  }, [account]);
 
   // use to tell if doctor variable: isDoctor
   const { error: contractError1, value: isDoctor } =
@@ -140,6 +157,16 @@ function App() {
           <Route
             path="/research"
             element={<Research graphData={subgraphData} />}
+          />
+          <Route
+            path="/did"
+            element={
+              <Did>
+                <pre id="result">
+                  {didDoc && JSON.stringify(didDoc, null, 2)}
+                </pre>
+              </Did>
+            }
           />
           <Route path="*" element={<Landing />} />
         </Routes>
