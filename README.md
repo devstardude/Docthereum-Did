@@ -40,7 +40,7 @@ While developing the dapp , we noticed that Chainlink's rinkeby network was in m
 Rinkeby [0xa6a11dF4FAc5c4b148bC91f03FD0919237d16801](https://github.com/devstardude/Docthereum/blob/master/packages/contracts/docthereum.sol)  
 And Kovan [0x6DdD958591974891eD4819cDF9a269DaEc3C55A7](https://github.com/devstardude/Docthereum/blob/master/packages/contracts/docthereum-kovan.sol).  
 So we were able to test the verification functionality on Kovan , all while deploying the subgrapgh on Rinkeby to index the Rinkeby version of the smart contract.**
-## 2. Different testnets 
+## 2. Unavailabilty of Rubix did for React.js 
 After studying about **Rubix DID** and contacting the devs of Rubix, we got to know there are no plugings available for a JavaScipt application and only Java SDK is available.
 
 ### Solution :-
